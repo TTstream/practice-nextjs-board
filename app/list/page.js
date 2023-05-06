@@ -10,10 +10,10 @@ export default async function List() {
       {result.map((a, i) => (
         <div className="list-item" key={i}>
           <Link href={`/detail/${a._id}`}>
-            <h4>{a.title}</h4>
+            <h4>{a.title ? a.title : a.id}</h4>
           </Link>
           <DetailLink id={a._id} />
-          <p>{a.content}</p>
+          <p>{a.content ? a.content : a.password}</p>
         </div>
       ))}
     </div>
