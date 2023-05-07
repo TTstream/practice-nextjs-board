@@ -5,5 +5,5 @@ export default async function Home() {
   // const db = (await connectDB).db("forum");
   // let result = await db.collection("post").find().toArray();
 
-  return <div>ㅎㅇ</div>;
+  return <div>처음화면</div>;
 }

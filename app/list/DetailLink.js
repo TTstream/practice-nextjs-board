@@ -11,7 +11,7 @@ export default function DetailLink({ id }) {
         router.push(`/detail/${id}`);
       }}
     >
-      버튼
+      자세히 보기
     </button>
   );
 }

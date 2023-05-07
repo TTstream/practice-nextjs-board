@@ -12,6 +12,9 @@ export default async function List() {
           <Link href={`/detail/${a._id}`}>
             <h4>{a.title ? a.title : a.id}</h4>
           </Link>
+          <Link href={`/edit/${a._id}`}>
+            <button>게시글 수정</button>
+          </Link>
           <DetailLink id={a._id} />
           <p>{a.content ? a.content : a.password}</p>
         </div>
