@@ -15,11 +15,28 @@ export default function ListItem({ result }) {
             <button>게시글 수정</button>
           </Link>
           <span
-            onClick={() => {
-              fetch("/api/delete", {
-                method: "POST",
-                body: a._id,
-              }).then((window.location.href = "/list"));
+            onClick={(e) => {
+              // fetch("/api/delete", {
+              //   method: "POST",
+              //   body: a._id,
+              // })
+              //   .then((r) => r.json())
+              //   .then(() => {
+              //     console.log(e.target);
+              //     e.target.parentElement.style.opacity = 0;
+              //     setTimeout(() => {
+              //       e.target.parentElement.style.display = "none";
+              //     }, 1000);
+              //   });
+              // fetch("/api/fetchtest?name=kim&age=20"); 쿼리스트링
+              fetch(`/api/delete/${a._id.toString()}`)
+                .then((r) => r.json())
+                .then(() => {
+                  e.target.parentElement.style.opacity = 0;
+                  setTimeout(() => {
+                    e.target.parentElement.style.display = "none";
+                  }, 1000);
+                });
             }}
           >
             게시글 삭제

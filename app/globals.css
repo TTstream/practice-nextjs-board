@@ -52,3 +52,7 @@ a {
 button:hover {
   cursor: pointer;
 }
+.list-item {
+  opacity: 1;
+  transition: all 1s;
+}
