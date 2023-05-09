@@ -1,10 +1,7 @@
 import { connectDB } from "@/util/database";
 import ListItem from "./ListItem";
 
-// 항상 dynamic rendering으로 표시되게
-export const dynamic = "force-dynamic";
-// 항상 dynamic static으로 표시되게
-//export const dynamic = "force-static";
+export const revalidate = 20; // 20초동안 캐싱된 결과 사용
 
 export default async function List() {
   const db = (await connectDB).db("forum");
