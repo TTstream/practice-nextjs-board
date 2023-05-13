@@ -11,7 +11,7 @@ export default async function handler(요청, 응답) {
       요청.body.email == null ||
       요청.body.password == null
     ) {
-      응답.status(500).json("빈칸이 존재합니다.");
+      return 응답.status(500).json("빈칸이 존재합니다.");
     }
     //비밀번호 암호화를 해줌
     let hash = await bcrypt.hash(요청.body.password, 10);
@@ -22,14 +22,14 @@ export default async function handler(요청, 응답) {
     let result = await db
       .collection("user_cred")
       .findOne({ email: 요청.body.email });
-    console.log(result.email);
-    // 이메일이 있다면 반환
-    if (요청.body.email == result.email) {
-      응답.status(500).json("현재 존재하는 이메일입니다.");
-    } else {
-      // 이메일이 없다면 회원가입
+
+    // 이메일이 없다면 회원가입
+    if (result == undefined) {
       await db.collection("user_cred").insertOne(요청.body);
       응답.status(200).json("가입성공");
+    } else {
+      // 이메일이 있다면 반환
+      응답.status(500).json("현재 존재하는 이메일입니다.");
     }
 
     // let { id, password } = 요청.body;
