@@ -31,7 +31,8 @@ export default function ListItem({ result }) {
               // fetch("/api/fetchtest?name=kim&age=20"); 쿼리스트링
               fetch(`/api/delete/${a._id.toString()}`)
                 .then((r) => r.json())
-                .then(() => {
+                .then((r) => {
+                  // alert(r); //r값에 의해 다른 값 출력해주기
                   e.target.parentElement.style.opacity = 0;
                   setTimeout(() => {
                     e.target.parentElement.style.display = "none";
