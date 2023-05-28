@@ -29,7 +29,9 @@ export default function Comment({ _id }) {
       <div>
         {data.length > 0
           ? data.map((data, index) => <p key={index}>{data.content}</p>)
-          : "댓글 로딩중"}
+          : data.length == 0
+          ? "댓글 없음"
+          : "댓글로딩중"}
       </div>
     </div>
   );
